@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
+
 class MahasiswaController extends Controller
 {
     public function index()
     {
-        // Simulasi data dari database
-        $mahasiswa = [
-            ['nama' => 'Arif',  'jurusan' => 'Teknik Informatika'],
-            ['nama' => 'Budi',  'jurusan' => 'Sistem Informasi'],
-            ['nama' => 'Citra', 'jurusan' => 'Teknik Komputer'],
-        ];
-
-        // Kirim data ke View
+        $mahasiswa = Mahasiswa::all();
         return view('mahasiswa', ['mahasiswa' => $mahasiswa]);
     }
 }
