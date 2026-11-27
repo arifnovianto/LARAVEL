@@ -26,3 +26,15 @@ Route::get('/dashboard', function () {
 Route::get('/admin', function () {
     return view('admin.dashboard');
 })->middleware(['auth', App\Http\Middleware\IsAdmin::class]);
+
+//HALAMAN CRUD\
+//tampilkan form tambah
+Route::get('mahasiswa/create', [MahasiswaController::class, 'create']);
+//simpan data baru
+Route::post('/mahasiswa', [MahasiswaController::class, 'store']);
+//Tampilkan form edit
+Route::get('/mahasiswa/{id}/edit', [MahasiswaController::class, 'edit']);
+//update data
+Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
+//hapus data
+Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy']);
